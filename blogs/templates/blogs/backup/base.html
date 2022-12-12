@@ -1,0 +1,13 @@
+<p>
+  <a href="{% url 'blogs:posts' %}">Домашняя страница блога</a> - 
+  {% if user.is_authenticated %}
+    Привет, {{ user.username }}!
+    <a href="{% url 'users:logout' %}">Выйти</a> 
+  {% else %}
+    Вы не вошли.
+    <a href="{% url 'users:register' %}">Зарегистрироваться</a> - 
+    <a href="{% url 'users:login' %}">Войти</a>
+  {% endif %}
+</p>
+
+{% block content %}{% endblock content %}
